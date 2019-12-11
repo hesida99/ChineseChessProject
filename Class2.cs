@@ -208,7 +208,7 @@ namespace ZZH
                 case "c":
                     if ((beginrow == endrow) && (begincolum != endcolum))
                     {
-                        if (endcolum < begincolum)
+                        if (endcolum < begincolum)//向左
                         {
                             if (Chess[endcolum,endrow].Getname().Equals("nochess"))
                             {
@@ -247,11 +247,11 @@ namespace ZZH
                                 cango = false;
 
                         }
-                        else if (endcolum > begincolum)
+                        else if (endcolum > begincolum)//向右
                         {
                             if (Chess[endcolum, endrow].Getname().Equals("nochess"))
                             {
-                                for (int j = endcolum - 1; j > begincolum; j--)
+                                for (int j = begincolum + 1; j < endcolum; j++)
                                 {
                                     if (!Chess[j, endrow].Getname().Equals("nochess"))
                                     {
@@ -265,7 +265,7 @@ namespace ZZH
                             else if ((!Chess[endcolum, endrow].Getname().Equals("nochess")) && (!Chess[begincolum, beginrow].Getcolor().Equals(Chess[endcolum, endrow].Getcolor())))
                             {
                                 int account = 0;
-                                for (int j = endcolum - 1; j > begincolum; j--)
+                                for (int j = begincolum + 1; j < endcolum; j++)
                                 {
                                     if (!Chess[j, endrow].Getname().Equals("nochess"))
                                     {
@@ -287,7 +287,7 @@ namespace ZZH
                     //上下移动
                     else if ((begincolum == endcolum) && (beginrow != endrow))
                     {
-                        if (endrow < beginrow)
+                        if (endrow < beginrow)//向上
                         {
                             if (Chess[endcolum, endrow].Getname().Equals("nochess"))
                             {
@@ -327,13 +327,13 @@ namespace ZZH
 
                         }
 
-                        else if (endrow > beginrow)
+                        else if (endrow > beginrow)//向下
                         {
                             if (Chess[endcolum, endrow].Getname().Equals("nochess"))
                             {
-                                for (int i = endrow - 1; i > beginrow; i--)
+                                for (int i = beginrow + 1; i < endrow; i++)
                                 {
-                                    if (!Chess[endrow, i].Getname().Equals("nochess"))
+                                    if (!Chess[endcolum, i].Getname().Equals("nochess"))
                                     {
                                         cango = false;
                                         break;
@@ -345,7 +345,7 @@ namespace ZZH
                             else if ((!Chess[endcolum, endrow].Getname().Equals("nochess")) && (!Chess[begincolum, beginrow].Getcolor().Equals(Chess[endcolum, endrow].Getcolor())))
                             {
                                 int account = 0;
-                                for (int i = endrow - 1; i > beginrow; i--)
+                                for (int i = beginrow + 1; i < endrow; i++)
                                 {
                                     if (!Chess[endcolum, i].Getname().Equals("nochess"))
                                     {
