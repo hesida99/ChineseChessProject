@@ -204,13 +204,13 @@ namespace ZZH
                             break;
                     }
                     break;
-            //--------------------------------------------------------------------------
+                //--------------------------------------------------------------------------
                 case "c":
                     if ((beginrow == endrow) && (begincolum != endcolum))
                     {
                         if (endcolum < begincolum)//向左
                         {
-                            if (Chess[endcolum,endrow].Getname().Equals("nochess"))
+                            if (Chess[endcolum, endrow].Getname().Equals("nochess"))
                             {
                                 for (int j = begincolum - 1; j > endcolum; j--)
                                 {
@@ -367,9 +367,115 @@ namespace ZZH
                     }
                     else
                         cango = false;
-                    
+
                     break;
-            //--------------------------------------------------------------------------
+                //--------------------------------------------------------------------------
+                case "G":
+                    switch (Chess[begincolum, beginrow].color)
+                    {
+                        case "red":
+                            if ((endrow >= 7 && endrow <= 9) && (endcolum >= 3 && endcolum <= 5))
+                            {
+                                if (Math.Pow(endrow - beginrow, 2) + Math.Pow(endcolum - begincolum, 2) == 1)
+                                {
+                                    if (Chess[endcolum, endrow].Getname().Equals("nochess"))
+                                    {
+                                        cango = true;
+                                    }
+                                    else if (!Chess[endcolum, endrow].Getname().Equals("nochess") && (!Chess[endcolum, endrow].Getcolor().Equals(Chess[endcolum, endrow].Getcolor())))
+                                    {
+                                        cango = true;
+                                    }
+                                    else
+                                        cango = false;
+                                }
+                                else
+                                    cango = false;
+
+                            }
+                            else
+                                cango = false;
+                            break;
+
+                        case "black":
+                            if ((endrow >= 0 && endrow <= 2) && (endcolum >= 3 && endcolum <= 5))
+                            {
+                                if (Math.Pow(endrow - beginrow, 2) + Math.Pow(endcolum - begincolum, 2) == 1)
+                                {
+                                    if (Chess[endcolum, endrow].Getname().Equals("nochess"))
+                                    {
+                                        cango = true;
+                                    }
+                                    else if (!Chess[endcolum, endrow].Getname().Equals("nochess") && (!Chess[endcolum, endrow].Getcolor().Equals(Chess[endcolum, endrow].Getcolor())))
+                                    {
+                                        cango = true;
+                                    }
+                                    else
+                                        cango = false;
+                                }
+                                else
+                                    cango = false;
+
+                            }
+                            else
+                                cango = false;
+                            break;
+                    }
+
+                    break;
+                //--------------------------------------------------------------------------
+                case "g":
+                    switch (Chess[begincolum, beginrow].color)
+                    {
+                        case "red":
+                            if ((endrow >= 7 && endrow <= 9) && (endcolum >= 3 && endcolum <= 5))
+                            {
+                                if (Math.Pow(endrow - beginrow, 2) + Math.Pow(endcolum - begincolum, 2) == 1)
+                                {
+                                    if (Chess[endcolum, endrow].Getname().Equals("nochess"))
+                                    {
+                                        cango = true;
+                                    }
+                                    else if (!Chess[endcolum, endrow].Getname().Equals("nochess") && (!Chess[endcolum, endrow].Getcolor().Equals(Chess[endcolum, endrow].Getcolor())))
+                                    {
+                                        cango = true;
+                                    }
+                                    else
+                                        cango = false;
+                                }
+                                else
+                                    cango = false;
+
+                            }
+                            else
+                                cango = false;
+                            break;
+
+                        case "black":
+                            if ((endrow >= 0 && endrow <= 2) && (endcolum >= 3 && endcolum <= 5))
+                            {
+                                if (Math.Pow(endrow - beginrow, 2) + Math.Pow(endcolum - begincolum, 2) == 2)
+                                {
+                                    if (Chess[endcolum, endrow].Getname().Equals("nochess"))
+                                    {
+                                        cango = true;
+                                    }
+                                    else if (!Chess[endcolum, endrow].Getname().Equals("nochess") && (!Chess[endcolum, endrow].Getcolor().Equals(Chess[endcolum, endrow].Getcolor())))
+                                    {
+                                        cango = true;
+                                    }
+                                    else
+                                        cango = false;
+                                }
+                                else
+                                    cango = false;
+
+                            }
+                            else
+                                cango = false;
+                            break;
+                    }
+                    break;
             }
             return cango;
         }
@@ -586,10 +692,10 @@ namespace ZZH
                     }
 
                     break;
-//--------------------------------------------------------------------------------------------
+                //--------------------------------------------------------------------------------------------
                 case "c":
-                    
-                    for(int i = row-1;i >= 0; i--)
+
+                    for (int i = row - 1; i >= 0; i--)
                     {
                         if (Chess[colum, i].Getname().Equals("nochess"))
                         {
@@ -597,12 +703,12 @@ namespace ZZH
                         }
                         else
                         {
-                            for(int i1 = i - 1; i1 >= 0; i1--)
+                            for (int i1 = i - 1; i1 >= 0; i1--)
                             {
-                                if((!Chess[colum,i1].Getname().Equals("nochess")) && (!Chess[colum, i1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                if ((!Chess[colum, i1].Getname().Equals("nochess")) && (!Chess[colum, i1].Getcolor().Equals(Chess[colum, row].Getcolor())))
                                 {
                                     Chess[colum, i1].changeCango();
-                                    i =-1;
+                                    i = -1;
                                     break;
 
                                 }
@@ -613,20 +719,20 @@ namespace ZZH
                             }
                         }
                     }
-                    for(int i = row + 1; i <= 9; i++)
+                    for (int i = row + 1; i <= 9; i++)
                     {
-                        if(Chess[colum, i].Getname().Equals("nochess"))
+                        if (Chess[colum, i].Getname().Equals("nochess"))
                         {
                             Chess[colum, i].changeCango();
                         }
                         else
                         {
-                            for(int i1 = i + 1;i1 <= 9; i1++)
+                            for (int i1 = i + 1; i1 <= 9; i1++)
                             {
                                 if ((!Chess[colum, i1].Getname().Equals("nochess")) && (!Chess[colum, i1].Getcolor().Equals(Chess[colum, row].Getcolor())))
                                 {
                                     Chess[colum, i1].changeCango();
-                                    
+
                                     i = 10;
                                     break;
                                 }
@@ -637,7 +743,7 @@ namespace ZZH
                             }
                         }
                     }
-                    for(int j = colum - 1;j >= 0; j--)
+                    for (int j = colum - 1; j >= 0; j--)
                     {
                         if (Chess[j, row].Getname().Equals("nochess"))
                         {
@@ -645,7 +751,7 @@ namespace ZZH
                         }
                         else
                         {
-                            for(int j1 = j-1;j1 >= 0; j1--)
+                            for (int j1 = j - 1; j1 >= 0; j1--)
                             {
                                 if ((!Chess[j1, row].Getname().Equals("nochess")) && (!Chess[j1, row].Getcolor().Equals(Chess[colum, row].Getcolor())))
                                 {
@@ -660,7 +766,7 @@ namespace ZZH
                             }
                         }
                     }
-                    for(int j = colum + 1; j <= 8; j++)
+                    for (int j = colum + 1; j <= 8; j++)
                     {
                         if (Chess[j, row].Getname().Equals("nochess"))
                         {
@@ -668,7 +774,7 @@ namespace ZZH
                         }
                         else
                         {
-                            for(int j1 = j +1; j1 <= 8; j1++)
+                            for (int j1 = j + 1; j1 <= 8; j1++)
                             {
                                 if ((!Chess[j1, row].Getname().Equals("nochess")) && (!Chess[j1, row].Getcolor().Equals(Chess[colum, row].Getcolor())))
                                 {
@@ -684,7 +790,7 @@ namespace ZZH
                         }
                     }
                     break;
-//-------------------------------------------------------------------------------------------------------------------------------------------
+                    //-------------------------------------------------------------------------------------------------------------------------------------------
             }
         }
     }
