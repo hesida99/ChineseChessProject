@@ -960,7 +960,7 @@ namespace ConsoleXiangqi
                         case "red":
                             if ((endrow >= 7 && endrow <= 9) && (endcolum >= 3 && endcolum <= 5))
                             {
-                                if (Math.Pow(endrow - beginrow, 2) + Math.Pow(endcolum - begincolum, 2) == 1)
+                                if (Math.Pow(endrow - beginrow, 2) + Math.Pow(endcolum - begincolum, 2) == 2)
                                 {
                                     if (Chess[endcolum, endrow].Getname().Equals("nochess"))
                                     {
@@ -1744,25 +1744,112 @@ namespace ConsoleXiangqi
                                 }
                             }
                             break;
-                            
-                    }
-                    
-                    
-                    
+                     }
                     break;
+             //----------------------------------------------------------------------------------------------------------------------------------------------
+                case "士":
+                    switch (Chess[colum, row].Getcolor())
+                    {
+                        case "red":
+                            if(row - 1 >= 7 && colum + 1 <= 5)
+                            {
+                                if(Chess[colum + 1, row - 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum + 1, row - 1].changeCango();
+                                }else if(!(Chess[colum + 1, row - 1].Getname().Equals("nochess") || Chess[colum + 1, row - 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum + 1, row - 1].changeCango();
+                                }
+                            }
 
+                            if (row - 1 >= 7 && colum - 1 >= 3)
+                            {
+                                if (Chess[colum - 1, row - 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum - 1, row - 1].changeCango();
+                                }
+                                else if (!(Chess[colum - 1, row - 1].Getname().Equals("nochess") || Chess[colum - 1, row - 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum - 1, row - 1].changeCango();
+                                }
+                            }
 
+                            if (row + 1 <= 9 && colum - 1 >= 3)
+                            {
+                                if (Chess[colum - 1, row + 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum - 1, row + 1].changeCango();
+                                }
+                                else if (!(Chess[colum - 1, row + 1].Getname().Equals("nochess") || Chess[colum - 1, row + 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum - 1, row + 1].changeCango();
+                                }
+                            }
 
+                            if (row + 1 <= 9 && colum + 1 <= 5)
+                            {
+                                if (Chess[colum + 1, row + 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum + 1, row + 1].changeCango();
+                                }
+                                else if (!(Chess[colum + 1, row + 1].Getname().Equals("nochess") || Chess[colum + 1, row + 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum + 1, row + 1].changeCango();
+                                }
+                            }
 
+                            break;
+                        case "black":
+                            if (row - 1 >= 0 && colum + 1 <= 5)
+                            {
+                                if (Chess[colum + 1, row - 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum + 1, row - 1].changeCango();
+                                }
+                                else if (!(Chess[colum + 1, row - 1].Getname().Equals("nochess") || Chess[colum + 1, row - 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum + 1, row - 1].changeCango();
+                                }
+                            }
 
+                            if (row - 1 >= 0 && colum - 1 >= 3)
+                            {
+                                if (Chess[colum - 1, row - 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum - 1, row - 1].changeCango();
+                                }
+                                else if (!(Chess[colum - 1, row - 1].Getname().Equals("nochess") || Chess[colum - 1, row - 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum - 1, row - 1].changeCango();
+                                }
+                            }
 
+                            if (row + 1 <= 2 && colum - 1 >= 3)
+                            {
+                                if (Chess[colum - 1, row + 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum - 1, row + 1].changeCango();
+                                }
+                                else if (!(Chess[colum - 1, row + 1].Getname().Equals("nochess") || Chess[colum - 1, row + 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum - 1, row + 1].changeCango();
+                                }
+                            }
 
-
-
-
-
-
-
+                            if (row + 1 <= 2 && colum + 1 <= 5)
+                            {
+                                if (Chess[colum + 1, row + 1].Getname().Equals("nochess"))
+                                {
+                                    Chess[colum + 1, row + 1].changeCango();
+                                }
+                                else if (!(Chess[colum + 1, row + 1].Getname().Equals("nochess") || Chess[colum + 1, row + 1].Getcolor().Equals(Chess[colum, row].Getcolor())))
+                                {
+                                    Chess[colum + 1, row + 1].changeCango();
+                                }
+                            }
+                            break;
+                    }
+                break;
 
             }
         }
