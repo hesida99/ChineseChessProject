@@ -1405,7 +1405,7 @@ namespace ConsoleXiangqi
                                 else if (Chess[colum, i1].Getname().Equals("nochess"))
                                 {
                                     i = -1;
-                                    break;
+                                    
                                 }
                                 //如果棋子X之后一个位置没有棋子，则继续进行此循环，看看棋子X之后的一个位置是否有棋子。。。。。。
                             }
@@ -1436,7 +1436,7 @@ namespace ConsoleXiangqi
                                 else if (Chess[colum, i1].Getname().Equals("nochess"))
                                 {
                                     i = 10;
-                                    break;
+                                    
                                 }
                             }
                         }
@@ -1464,7 +1464,7 @@ namespace ConsoleXiangqi
                                 }else if(Chess[j1, row].Getname().Equals("nochess"))
                                 {
                                     j = -1;
-                                    break;
+                                    
                                 }
                             }
                         }
@@ -1493,7 +1493,7 @@ namespace ConsoleXiangqi
                                 else if (Chess[j1, row].Getname().Equals("nochess"))
                                 {
                                     j = 9;
-                                    break;
+                                    
                                 }
                             }
                         }
